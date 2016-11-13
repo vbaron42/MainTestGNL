@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbaron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/20 22:33:32 by vbaron            #+#    #+#             */
-/*   Updated: 2016/11/13 05:40:34 by vbaron           ###   ########.fr       */
+/*   Created: 2015/11/28 17:50:28 by vbaron            #+#    #+#             */
+/*   Updated: 2016/02/09 21:41:19 by vbaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include "libft/libft.h"
-# define BUFF_SIZE 12000
-# define BUFF_MAX 320000
-# define MAXFILE 2048
+#include "libft.h"
 
-int				get_next_line(int const fd, char **line);
-char			*first_call(char *str, int fd);
-#endif
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+{
+	unsigned char	*ptr1;
+	unsigned char	*ptr2;
+
+	ptr1 = (unsigned char *)dst;
+	ptr2 = (unsigned char *)src;
+	while (n--)
+	{
+		*ptr1 = *ptr2;
+		if (*ptr2 == (unsigned char)c)
+			return ((void *)(ptr1 + 1));
+		ptr1++;
+		ptr2++;
+	}
+	return (NULL);
+}

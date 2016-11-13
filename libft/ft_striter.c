@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vbaron <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/20 22:33:32 by vbaron            #+#    #+#             */
-/*   Updated: 2016/11/13 05:40:34 by vbaron           ###   ########.fr       */
+/*   Created: 2015/12/15 02:41:07 by vbaron            #+#    #+#             */
+/*   Updated: 2015/12/15 02:44:43 by vbaron           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include "libft/libft.h"
-# define BUFF_SIZE 12000
-# define BUFF_MAX 320000
-# define MAXFILE 2048
+#include "libft.h"
 
-int				get_next_line(int const fd, char **line);
-char			*first_call(char *str, int fd);
-#endif
+void	ft_striter(char *s, void (*f)(char *))
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(&s[i]);
+		i++;
+	}
+}
